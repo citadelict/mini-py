@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app  # Mount the current directory into the container
+    working_dir: /app
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: ["python", "test_script.py"]
